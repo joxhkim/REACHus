@@ -51,7 +51,7 @@ const buildArticles = async (articles) => {
                     </span>
                     &nbsp;
                     <div class="url_link">
-                        www.google.com
+                        ${article.url}
                     </div>
                 </div>
             </div>
