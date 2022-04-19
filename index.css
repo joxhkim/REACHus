@@ -1,0 +1,98 @@
+html,
+body {
+    margin: 0;
+    padding: 0;
+}
+
+.banner {
+    width: '100%';
+    background-color: #0A2240;
+    height: 150px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#reachus_title {
+    font-size: 50px;
+    font-family: Arial, Helvetica, sans-serif;
+    color: white;
+}
+
+#account_action {
+    margin-top: 4em;
+    margin-bottom: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#dont_have_account {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 16px;
+}
+
+#create_account {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 18px;
+    text-decoration: underline;
+    color: #0A2240;
+    margin-left: 10px;
+}
+
+#login_container,
+#login_button {
+    margin-top: 1em;
+    margin-bottom: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+#email_container,
+#password_container {
+    flex-direction: column;
+    margin-top: 16px;
+    justify-content: flex-start;
+    align-items: flex-start;
+    width: 50vw;
+}
+
+#email_input_container,
+#password_input_container {
+    margin-top: 5px;
+}
+
+#password,
+#email {
+    width: 50vw;
+    padding-top: 8px;
+    padding-bottom: 8px;
+}
+
+#forgot_password {
+    margin-top: 8px;
+}
+
+#forgot_password_text {
+    font-size: 16px;
+    text-decoration: underline;
+    color: #0A2240;
+}
+
+#login_button {
+    height: 20px;
+}
+
+#login_button_text {
+    background-color: #0A2240;
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 16px;
+    font-weight: bold;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 5vw;
+    padding-right: 5vw;
+}

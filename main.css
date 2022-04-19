@@ -1,0 +1,139 @@
+#header_row {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+#select_row {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    flex: 0.8
+}
+
+#searchbar {
+    display: flex;
+    flex: 0.8;
+    flex-direction: row;
+}
+
+#searchbar_input {
+    /*width: 65vw;*/
+    flex: 1;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+#select_buttons {
+    flex: 0.2;
+    margin-left: 15px;
+    display: flex;
+    flex-direction: column;
+}
+
+#search_btn_container,
+#journal_btn_container,
+#author_btn_container {
+    flex-direction: row;
+}
+
+#main_container {
+    display: flex;
+    flex-direction: row;
+}
+
+#sidebar_container {
+    flex: 0.20
+}
+
+#date_range {
+    margin-top: 2em;
+    margin-bottom: 2em;
+}
+
+#search_term_title,
+#author_term_title,
+#journal_term_title {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    position: relative;
+}
+
+#search_term {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+#search_term_container,
+#journal_term_container,
+#author_term_container {
+    margin-top: 20px;
+    flex: 0.4
+}
+
+#search_term_input,
+#journal_term_input,
+#author_term_input {
+    width: 20px;
+    height: 20px;
+    margin-right: 8px;
+}
+
+#search_term_input_text,
+#journal_term_input_text,
+#author_term_input_text {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+#expand_search_terms,
+#expand_journal_terms,
+#expand_author_terms {
+    margin-top: 12px;
+}
+
+#article_container {
+    flex: 0.78;
+    margin-top: 2em;
+    box-shadow: 0 0px 6px 0 rgba(0, 0, 0.5)
+}
+
+.article_row {
+    display: flex;
+    flex-direction: column;
+    padding: 8px;
+    border-bottom: 1px solid black;
+}
+
+.article_content {
+    display: none;
+}
+
+.article_row.expanded .article_content {
+    margin-top: 15px;
+    display: flex;
+    flex-direction: column;
+}
+
+.article_title_text {
+    font-size: 16px;
+    font-family: Arial, Helvetica, sans-serif;
+    cursor: pointer;
+}
+
+.article_abstract_text {
+    font-size: 16px;
+    font-family: Arial, Helvetica, sans-serif;
+    cursor: pointer;
+}
+
+.url_link_text {
+    font-weight: bold;
+    font-family: Arial, Helvetica, sans-serif;
+}
