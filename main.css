@@ -1,43 +1,152 @@
+body {
+    margin: 0;
+    padding: 0;
+}
+
+input[type="radio"] {
+    appearance: none;
+    border: 1px solid #d3d3d3;
+    width: 20px;
+    height: 20px;
+    content: none;
+    outline: none;
+    margin: 0;
+}
+
+input[type="radio"]:checked {
+    appearance: none;
+    outline: none;
+    padding: 0;
+    content: none;
+}
+
+input[type="radio"]:checked::before {
+    position: absolute;
+    color: blue !important;
+    content: "\00A0\2713\00A0" !important;
+    font-weight: bold;
+}
+
 #header_row {
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: flex-start;
+    background-color: rgba(10, 34, 64, 0.9);
+    padding-bottom: 1em;
+    padding-top: 1em;
 }
 
 #select_row {
     display: flex;
     flex-direction: row;
     align-items: center;
-    justify-content: center;
+    justify-content: flex-start;
     width: 100%;
     flex: 0.8
 }
 
-#searchbar {
+#addbar {
     display: flex;
-    flex: 0.8;
+    flex: 0.45;
     flex-direction: row;
 }
 
-#searchbar_input {
+#addbar_input {
     /*width: 65vw;*/
     flex: 1;
     padding-top: 10px;
     padding-bottom: 10px;
+    border-radius: 8px;
+    padding-left: 10px;
+}
+
+#search_container {
+    display: flex;
+    align-items: center;
+    flex: 0.35;
+    flex-direction: row;
+}
+
+#search_reset_container {
+    display: flex;
+    flex-direction: row;
+    margin-left: 2em;
+}
+
+#add_btn {
+    width: 10em;
+    cursor: pointer;
+    margin-left: 0.5em;
+    margin-bottom: 5px;
+    background-color: #0a2240;
+    padding: 2px;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#delete_btn {
+    width: 10em;
+    cursor: pointer;
+    margin-left: 0.5em;
+    background-color: #0a2240;
+    padding: 2px;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#sidebar_container.deleted #delete_btn {
+    background-color: #A83216;
+}
+
+#reset_btn {
+    width: 10em;
+    cursor: pointer;
+    background-color: #0a2240;
+    padding: 2px;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+
+#select_button_type_container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: white;
+}
+
+#select_type_text {
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    font-size: 16px;
+    margin-bottom: 12px;
 }
 
 #select_buttons {
-    flex: 0.2;
     margin-left: 15px;
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
+    font-family: Arial, Helvetica, sans-serif;
+    align-items: flex-start;
 }
 
 #search_btn_container,
 #journal_btn_container,
 #author_btn_container {
     flex-direction: row;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 10px;
 }
 
 #main_container {
@@ -46,12 +155,23 @@
 }
 
 #sidebar_container {
-    flex: 0.20
+    flex: 0.2;
+    margin-left: 1em;
 }
 
-#date_range {
-    margin-top: 2em;
-    margin-bottom: 2em;
+#reset_container {
+    margin-top: 1em;
+    margin-bottom: 1em;
+    display: flex;
+    flex-direction: row;
+}
+
+#search_term_button,
+#journal_term_button,
+#author_term_button {
+    margin-right: 8px;
+    margin-bottom: 4px;
+    background-color: white;
 }
 
 #search_term_title,
@@ -62,13 +182,6 @@
     align-items: center;
     justify-content: flex-start;
     position: relative;
-}
-
-#search_term {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: flex-start;
 }
 
 #search_term_container,
@@ -92,6 +205,35 @@
     font-family: Arial, Helvetica, sans-serif;
 }
 
+#search_term_input_container,
+#journal_term_input_container,
+#author_term_input_container {
+    flex: 1;
+    display: flex;
+}
+
+#sidebar_container.deleted #search_term_input_container,
+#sidebar_container.deleted #journal_term_input_container,
+#sidebar_container.deleted #author_term_input_container {
+    flex: 0.8;
+    display: flex;
+}
+
+.search_term_delete,
+.journal_term_delete,
+.author_term_delete {
+    display: none;
+}
+
+#sidebar_container.deleted .search_term_delete,
+#sidebar_container.deleted .journal_term_delete,
+#sidebar_container.deleted .author_term_delete {
+    display: flex;
+    flex: 0.2;
+    cursor: pointer;
+}
+
+
 #expand_search_terms,
 #expand_journal_terms,
 #expand_author_terms {
@@ -101,7 +243,8 @@
 #article_container {
     flex: 0.78;
     margin-top: 2em;
-    box-shadow: 0 0px 6px 0 rgba(0, 0, 0.5)
+    box-shadow: 0 0px 6px 0 rgba(0, 0, 0.5);
+    height: 100%;
 }
 
 .article_row {
@@ -136,4 +279,81 @@
 .url_link_text {
     font-weight: bold;
     font-family: Arial, Helvetica, sans-serif;
+}
+
+#search_term_title {
+    cursor: pointer;
+}
+
+#search_term_title~#search_term_render {
+    display: none;
+}
+
+#search_term_title.expanded_search~#search_term_render {
+    display: flex;
+}
+
+
+#journal_term_title {
+    cursor: pointer;
+}
+
+#journal_term_title~#journal_term_render {
+    display: none;
+}
+
+#journal_term_title.expanded_journal~#journal_term_render {
+    display: flex;
+}
+
+#author_term_title {
+    cursor: pointer;
+}
+
+#author_term_title~#author_term_render {
+    display: none;
+}
+
+#author_term_title.expanded_author~#author_term_render {
+    display: flex;
+}
+
+#journal_term_render,
+#author_term_render,
+#search_term_render {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+}
+
+.journal_term,
+.author_term,
+.search_term {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 5px;
+    width: 100%
+}
+
+#more_search_terms_container.search_more #more_search_terms,
+#more_journal_terms_container.journal_more #more_journal_terms,
+#more_author_terms_container.author_more #more_author_terms {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+
+#more_search_terms_container #more_search_terms,
+#more_journal_terms_container #more_journal_terms,
+#more_author_terms_container #more_author_terms {
+    display: none;
+}
+
+#more_search_terms_container,
+#more_journal_terms_container,
+#more_author_terms_container {
+    width: 100%;
 }

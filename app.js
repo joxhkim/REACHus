@@ -13,7 +13,12 @@ app.listen(port, () => {
 });
 
 app.get('/articles/', api.getAllArticles);
-app.get('/articles/:id', api.getHorrorById);
-app.post('/articles/', api.addHorror);
-app.put('/articles/:id', api.updateHorror);
-app.delete('/articles/:id', api.deleteHorror);
+app.get('/search_terms/', api.getSearchTerms);
+app.get('/author_terms/', api.getAuthors);
+app.get('/journal_terms/', api.getAcademicJournals);
+app.post('/add/search_term/', api.addSearchTerm);
+app.post('/add/journal_term/', api.addJournalTerm);
+app.post('/add/author_term/', api.addAuthorTerm);
+app.put('/delete/search_term/', api.deleteSearchTerm);
+app.put('/delete/journal_term/', api.deleteJournalTerm);
+app.put('/delete/author_term/', api.deleteAuthorTerm);

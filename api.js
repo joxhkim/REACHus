@@ -1,7 +1,7 @@
 const Pool = require('pg').Pool;
 
 const pool = new Pool({
-    user: 'admin',
+    user: 'postgres',
     host: 'localhost',
     database: 'articles',
     password: 'auburn',
@@ -29,6 +29,69 @@ const getAllArticles = async (request, response) => {
     });
 };
 
+const getSearchTerms = async (request, response) => {
+    pool.query('SELECT * FROM search_terms', (error, results) => {
+        response.status(200).json(results.rows);
+    });
+};
+
+const getAcademicJournals = async (request, response) => {
+    pool.query('SELECT * FROM journal_terms', (error, results) => {
+        response.status(200).json(results.rows);
+    });
+};
+
+const getAuthors = async (request, response) => {
+    pool.query('SELECT * FROM author_terms', (error, results) => {
+        response.status(200).json(results.rows);
+    });
+};
+
+const addSearchTerm = async (request, response) => {
+    const { message } = request.body;
+    pool.query("INSERT INTO search_terms (search_term) VALUES ('" + message + "')", (error, results) => {
+        console.log('added search term successfully');
+        response.status(200).json({ term: message, type: "search" });
+    });
+};
+
+const addJournalTerm = async (request, response) => {
+    const { message } = request.body;
+    pool.query("INSERT INTO journal_terms (journal_term) VALUES ('" + message + "')", (error, results) => {
+        console.log('added journal term successfully');
+        response.status(200).json({ term: message, type: "journal" });
+    });
+};
+
+const addAuthorTerm = async (request, response) => {
+    const { message } = request.body;
+    pool.query("INSERT INTO author_terms (author_term) VALUES ('" + message + "')", (error, results) => {
+        console.log('added author term successfully');
+        response.status(200).json({ term: message, type: "author" });
+    });
+};
+
+const deleteSearchTerm = async (request, response) => {
+    const { message } = request.body;
+    pool.query('DELETE FROM search_terms WHERE id = ' + parseInt(message.id), (error, results) => {
+        response.status(200).json({ deleted_id: message.id, type: "search" });
+    });
+};
+
+const deleteJournalTerm = async (request, response) => {
+    const { message } = request.body;
+    pool.query('DELETE FROM journal_terms WHERE id = ' + parseInt(message.id), (error, results) => {
+        response.status(200).json({ deleted_id: message.id, type: "journal" });
+    });
+};
+
+const deleteAuthorTerm = async (request, response) => {
+    const { message } = request.body;
+    pool.query('DELETE FROM author_terms WHERE id = ' + parseInt(message.id), (error, results) => {
+        response.status(200).json({ deleted_id: message.id, type: "author" });
+    });
+};
+
 const getHorrorById = (request, response) => {
     const id = parseInt(request.params.id);
     if (request.treatment == 'on') {
@@ -37,18 +100,6 @@ const getHorrorById = (request, response) => {
         });
     } else {
         response.status(200).json(inMemoryHorrors[0]);
-    }
-};
-
-const addHorror = async (request, response) => {
-    const { name, rating } = request.body;
-    if (request.treatment == 'on') {
-        pool.query('INSERT INTO horrors (name, rating) VALUES ($1, $2)', [name, rating], (error, results) => {
-            response.status(201).send(`Horror added successfully.`);
-        });
-    } else {
-        inMemoryHorrors.push({ name, rating });
-        response.status(201).send(`Horror added successfully.`);
     }
 };
 
@@ -81,8 +132,13 @@ const deleteHorror = (request, response) => {
 
 module.exports = {
     getAllArticles,
-    getHorrorById,
-    addHorror,
-    updateHorror,
-    deleteHorror
+    getAcademicJournals,
+    getSearchTerms,
+    getAuthors,
+    addSearchTerm,
+    addJournalTerm,
+    addAuthorTerm,
+    deleteSearchTerm,
+    deleteJournalTerm,
+    deleteAuthorTerm,
 };

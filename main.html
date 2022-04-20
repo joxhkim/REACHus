@@ -24,28 +24,43 @@
 
 <body>
 
-    <div id="logout_button" style="position:absolute;top:10;right:10px;cursor:pointer">
-        <span style="color:#0A2240;text-decoration: underline;">Logout</span>
+    <div id="logout_button" style="position:absolute;top:10;right:10px;cursor:pointer;">
+        <span
+            style="font-family:Arial, Helvetica, sans-serif;color:#0A2240;text-decoration: underline;color:white;">Logout</span>
     </div>
 
     <div id="header_row">
-        <img src="assets/REACH blue_red tag_small.png" style="flex: 0.2;width: 450px; height: 150px">
+        <img src="assets/REACH blue_red tag_small.png" style="flex: 0.21;width: 450px; height: 150px">
         <div id="select_row">
-            <div id="searchbar">
-                <input type="text" id="searchbar_input" placeholder="Search" />
+            <div id="addbar">
+                <input style="font-size: 16px;" type="text" id="addbar_input" placeholder="Add more terms here" />
             </div>
-            <div id="select_buttons">
-                <div id="search_btn_container">
-                    <input type="radio" id="search_term_button" name="search_option_button" />
-                    <label for="search_term_button">Search Term</label>
+            <div id="search_container">
+                <div id="select_button_type_container">
+                    <span id="select_type_text">Select Specification</span>
+                    <div id="select_buttons">
+                        <div id="search_btn_container">
+                            <input type="radio" id="search_term_button" name="search_option_button" />
+                            <label for="search_term_button">Search</label>
+                        </div>
+                        <div id="journal_btn_container">
+                            <input type="radio" id="journal_term_button" name="search_option_button" />
+                            <label for="journal_button">Journal</label>
+                        </div>
+                        <div id="author_btn_container">
+                            <input type="radio" id="author_term_button" name="search_option_button" />
+                            <label for="author_button">Author</label>
+                        </div>
+                    </div>
                 </div>
-                <div id="journal_btn_container">
-                    <input type="radio" id="journal_button" name="search_option_button" />
-                    <label for="journal_button">Journal</label>
-                </div>
-                <div id="author_btn_container">
-                    <input type="radio" id="author_button" name="search_option_button" />
-                    <label for="author_button">Author</label>
+
+                <div id="search_reset_container">
+                    <div id="add_btn">
+                        <span id="search_btn_text"
+                            style="font-size: 14px; font-family:Arial, Helvetica, sans-serif;color:white;font-weight: bold; padding:8px">
+                            ADD TERM
+                        </span>
+                    </div>
                 </div>
             </div>
         </div>
@@ -54,14 +69,24 @@
     <div id="main_container">
         <!-- sidebar -->
         <div id="sidebar_container">
-            <div id="date_range">
-                <span style="font-size: 14px; font-family: Arial, Helvetica, sans-serif">
-                    DATE RANGE
-                </span>
+            <div id="reset_container">
+                <div id="reset_btn">
+                    <span id="search_btn_text"
+                        style="font-size: 14px; font-family:Arial, Helvetica, sans-serif;color:white;font-weight: bold; padding:8px">
+                        CLEAR FILTERS
+                    </span>
+                </div>
+                <div id="delete_btn">
+                    <span id="search_btn_text"
+                        style="font-size: 14px; font-family:Arial, Helvetica, sans-serif;color:white;font-weight: bold; padding:8px">
+                        DELETE TERM
+                    </span>
+                </div>
             </div>
 
+
             <div id="search_term_container">
-                <div id="search_term_title">
+                <div id="search_term_title" class="expanded_search">
                     <span id="search_term_title"
                         style="flex: 0.8;font-size: 20px;font-weight: bold;font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif; margin-top: 10px; margin-bottom: 10px;">
                         SEARCH TERMS
@@ -69,51 +94,21 @@
                     <i class="fa-solid fa-chevron-down" style="cursor: pointer; flex: 0.2"></i>
                 </div>
 
-                <div id="search_term">
-                    <input id="search_term_input" type="checkbox" id="military_children" />
-                    <label id="search_term_input_text" for="military_children">
-                        Military Children
-                    </label>
+                <div id="search_term_render">
+                    <div id="more_search_terms_container">
+                        <div id="more_search_terms"></div>
+                        <span id="search_term_expand"
+                            style="cursor: pointer;font-size: 14px; font-weight: bold; color: #A83216;font-family: Arial, Helvetica, sans-serif;">Show
+                            More
+                        </span>
+                    </div>
                 </div>
 
-                <div id="search_term">
-                    <input id="search_term_input" type="checkbox" id="military_children" />
-                    <label id="search_term_input_text" for="military_children">
-                        Reintegration
-                    </label>
-                </div>
 
-                <div id="search_term">
-                    <input id="search_term_input" type="checkbox" id="military_children" />
-                    <label id="search_term_input_text" for="military_children">
-                        Terrorism
-                    </label>
-                </div>
-
-                <div id="search_term">
-                    <input id="search_term_input" type="checkbox" id="military_children" />
-                    <label id="search_term_input_text" for="military_children">
-                        War
-                    </label>
-                </div>
-
-                <div id="search_term">
-                    <input id="search_term_input" type="checkbox" id="military_children" />
-                    <label id="search_term_input_text" for="military_children">
-                        Test Choice
-                    </label>
-                </div>
-
-                <div id="expand_search_terms">
-                    <span
-                        style="cursor: pointer;font-size: 14px; font-weight: bold; color: #A83216;font-family: Arial, Helvetica, sans-serif;">Show
-                        More
-                    </span>
-                </div>
             </div>
 
             <div id="journal_term_container">
-                <div id="journal_term_title">
+                <div id="journal_term_title" class="expanded_journal">
                     <span id="journal_term_title"
                         style="flex:0.8;font-size: 20px;font-weight: bold;font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif; margin-top: 10px; margin-bottom: 10px;">
                         ACADEMIC JOURNALS
@@ -122,51 +117,19 @@
                     <i class="fa-solid fa-chevron-down" style="cursor: pointer; flex:0.2"></i>
                 </div>
 
-                <div id="journal_term">
-                    <input id="journal_term_input" type="checkbox" id="military_children" />
-                    <label id="journal_term_input_text" for="military_children">
-                        Military Children
-                    </label>
-                </div>
-
-                <div id="journal_term">
-                    <input id="journal_term_input" type="checkbox" id="military_children" />
-                    <label id="journal_term_input_text" for="military_children">
-                        Reintegration
-                    </label>
-                </div>
-
-                <div id="journal_term">
-                    <input id="journal_term_input" type="checkbox" id="military_children" />
-                    <label id="journal_term_input_text" for="military_children">
-                        Terrorism
-                    </label>
-                </div>
-
-                <div id="journal_term">
-                    <input id="journal_term_input" type="checkbox" id="military_children" />
-                    <label id="journal_term_input_text" for="military_children">
-                        War
-                    </label>
-                </div>
-
-                <div id="journal_term">
-                    <input id="journal_term_input" type="checkbox" id="military_children" />
-                    <label id="journal_term_input_text" for="military_children">
-                        Test Choice
-                    </label>
-                </div>
-
-                <div id="expand_journal_terms">
-                    <span
-                        style="cursor: pointer;font-size: 14px; font-weight: bold; color: #A83216;font-family: Arial, Helvetica, sans-serif;">Show
-                        More
-                    </span>
+                <div id="journal_term_render">
+                    <div id="more_journal_terms_container">
+                        <div id="more_journal_terms"></div>
+                        <span id="journal_term_expand"
+                            style="cursor: pointer;font-size: 14px; font-weight: bold; color: #A83216;font-family: Arial, Helvetica, sans-serif;">Show
+                            More
+                        </span>
+                    </div>
                 </div>
             </div>
 
             <div id="author_term_container">
-                <div id="author_term_title">
+                <div id="author_term_title" class="expanded_author">
                     <span id="author_term_title"
                         style="flex:0.8;font-size: 20px;font-weight: bold;font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif; margin-top: 10px; margin-bottom: 10px;">
                         AUTHORS
@@ -174,47 +137,16 @@
                     <i class="fa-solid fa-chevron-down" style="cursor: pointer; flex:0.2"></i>
                 </div>
 
-                <div id="author_term">
-                    <input id="author_term_input" type="checkbox" id="military_children" />
-                    <label id="author_term_input_text" for="military_children">
-                        Military Children
-                    </label>
+                <div id="author_term_render">
+                    <div id="more_author_terms_container">
+                        <div id="more_author_terms"></div>
+                        <span id="author_term_expand"
+                            style="cursor: pointer;font-size: 14px; font-weight: bold; color: #A83216;font-family: Arial, Helvetica, sans-serif;">Show
+                            More
+                        </span>
+                    </div>
                 </div>
 
-                <div id="author_term">
-                    <input id="author_term_input" type="checkbox" id="military_children" />
-                    <label id="author_term_input_text" for="military_children">
-                        Reintegration
-                    </label>
-                </div>
-
-                <div id="author_term">
-                    <input id="author_term_input" type="checkbox" id="military_children" />
-                    <label id="author_term_input_text" for="military_children">
-                        Terrorism
-                    </label>
-                </div>
-
-                <div id="author_term">
-                    <input id="author_term_input" type="checkbox" id="military_children" />
-                    <label id="author_term_input_text" for="military_children">
-                        War
-                    </label>
-                </div>
-
-                <div id="author_term">
-                    <input id="author_term_input" type="checkbox" id="military_children" />
-                    <label id="author_term_input_text" for="military_children">
-                        Test Choice
-                    </label>
-                </div>
-
-                <div id="expand_author_terms">
-                    <span
-                        style="cursor: pointer;font-size: 14px; font-weight: bold; color: #A83216;font-family: Arial, Helvetica, sans-serif;">Show
-                        More
-                    </span>
-                </div>
             </div>
 
         </div>
