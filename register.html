@@ -20,7 +20,8 @@
     <link rel="icon" href="/favicon.svg" type="image/svg+xml">
     <link rel="apple-touch-icon" href="/apple-touch-icon.png">
     <link rel="stylesheet" href="register.css">
-
+    <script src="https://kit.fontawesome.com/e46af82d8f.js" crossorigin="anonymous"></script>
+    <script src="jquery-3.6.0.min.js"></script>
 </head>
 
 <body>
@@ -34,63 +35,66 @@
         <span id="dont_have_account">
             Already Registered?
         </span>
-        <div id="create_account">
-            <span id="create_account_text">
+        <div id="login_account">
+            <span id="login_account_text">
                 Login
             </span>
         </div>
     </div>
 
-    <div id="login_container">
-        <div>
-            <div id="firstname_container">
-                <span>
-                    FIRST NAME
-                </span>
-                <div id="firstname_input_container">
-                    <input type="text" id="firstname" name="firstname">
+    <form id="register_form" method="post">
+        <div id="login_container">
+            <div>
+                <div id="firstname_container">
+                    <span>
+                        FIRST NAME
+                    </span>
+                    <div id="firstname_input_container">
+                        <input required type="text" id="firstname" name="firstname">
+                    </div>
                 </div>
-            </div>
-            <div id="lastname_container">
-                <span>
-                    LAST NAME
-                </span>
-                <div id="lastname_input_container">
-                    <input type="text" id="lastname" name="lastname">
+                <div id="lastname_container">
+                    <span>
+                        LAST NAME
+                    </span>
+                    <div id="lastname_input_container">
+                        <input required type="text" id="lastname" name="lastname">
+                    </div>
                 </div>
-            </div>
-            <div id="email_container">
-                <span>
-                    EMAIL
-                </span>
-                <div id="email_input_container">
-                    <input type="email" id="email" name="email">
+                <div id="email_container">
+                    <span>
+                        EMAIL
+                    </span>
+                    <div id="email_input_container">
+                        <input required type="email" id="email" name="email">
+                    </div>
                 </div>
-            </div>
-            <div id="password_container">
-                <span>
-                    PASSWORD
-                </span>
-                <div id="password_input_container">
-                    <input type="password" id="password" name="password">
+                <div id="password_container">
+                    <span>
+                        PASSWORD
+                    </span>
+                    <div id="password_input_container">
+                        <input required type="password" id="password" name="password">
+                    </div>
                 </div>
-            </div>
-            <div id="confirm_password_container">
-                <span>
-                    CONFIRM PASSWORD
-                </span>
-                <div id="confirm_password_input_container">
-                    <input type="password" id="confirm_password" name="confirm_password">
+                <div id="confirm_password_container">
+                    <span>
+                        CONFIRM PASSWORD
+                    </span>
+                    <div id="confirm_password_input_container">
+                        <input required type="password" id="confirm_password" name="confirm_password">
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
 
-    <div id="submit_button">
-        <span id="submit_button_text">SUBMIT</span>
-    </div>
 
-    <script src="js/scripts.js"></script>
+        <div id="submit_button">
+            <input id="submit_button_text" type="submit" value="SUBMIT">
+        </div>
+    </form>
+
+    <script src="register.js"></script>
 </body>
 
 </html>

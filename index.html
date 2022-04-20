@@ -20,7 +20,8 @@
     <link rel="icon" href="/favicon.svg" type="image/svg+xml">
     <link rel="apple-touch-icon" href="/apple-touch-icon.png">
     <link rel="stylesheet" href="index.css">
-
+    <script src="https://kit.fontawesome.com/e46af82d8f.js" crossorigin="anonymous"></script>
+    <script src="jquery-3.6.0.min.js"></script>
 </head>
 
 <body>
@@ -41,35 +42,37 @@
         </div>
     </div>
 
-    <div id="login_container">
-        <div>
-            <div id="email_container">
-                <span>
-                    EMAIL
-                </span>
-                <div id="email_input_container">
-                    <input type="email" id="email" name="email">
+    <form id="login_form" method="post">
+        <div id="login_container">
+            <div>
+                <div id="email_container">
+                    <span>
+                        EMAIL
+                    </span>
+                    <div id="email_input_container">
+                        <input required type="email" id="email" name="email">
+                    </div>
                 </div>
-            </div>
-            <div id="password_container">
-                <span>
-                    PASSWORD
-                </span>
-                <div id="password_input_container">
-                    <input type="text" id="password" name="password">
+                <div id="password_container">
+                    <span>
+                        PASSWORD
+                    </span>
+                    <div id="password_input_container">
+                        <input type="password" id="password" name="password">
+                    </div>
                 </div>
-            </div>
-            <div id="forgot_password">
-                <span id="forgot_password_text">Forgot Password?</span>
+                <div id="forgot_password">
+                    <span id="forgot_password_text">Forgot Password?</span>
+                </div>
             </div>
         </div>
-    </div>
 
-    <div id="login_button">
-        <span id="login_button_text">LOGIN</span>
-    </div>
+        <div id="login_button">
+            <input id="login_button_text" type="submit" value="LOGIN">
+        </div>
+    </form>
 
-    <script src="js/scripts.js"></script>
+    <script src="index.js"></script>
 </body>
 
 </html>

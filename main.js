@@ -124,14 +124,17 @@ $(window).on('load', async function () {
 
     $(document).on('click', '#sidebar_container:not(.deleted) .search_term #search_term_input', (event) => {
         let input = $(event.currentTarget).parent().find('#search_term_input_text').text().replace(/\n/g, " ").trim();
+        filterArticles(input, "search");
+    })
 
-        if ($(event.currentTarget).parent().parent().hasClass('search_term')) {
-            filterArticles(input, "search");
-        } else if ($(event.currentTarget).parent().parent().hasClass('journal_term')) {
-            filterArticles(input, "journal");
-        } else if ($(event.currentTarget).parent().parent().hasClass('author_term')) {
-            filterArticles(input, "author");
-        }
+    $(document).on('click', '#sidebar_container:not(.deleted) .journal_term #journal_term_input', (event) => {
+        let input = $(event.currentTarget).parent().find('#journal_term_input_text').text().replace(/\n/g, " ").trim();
+        filterArticles(input, "journal");
+    })
+
+    $(document).on('click', '#sidebar_container:not(.deleted) .author_term #author_term_input', (event) => {
+        let input = $(event.currentTarget).parent().find('#author_term_input_text').text().replace(/\n/g, " ").trim();
+        filterArticles(input, "author");
     })
 
     $(document).on('click', '#delete_btn', (event) => {
@@ -165,7 +168,9 @@ $(window).on('load', async function () {
         deleteTerm(termForDeletion, "author");
     })
 
-
+    $(document).on('click', '#logout_button', (event) => {
+        window.location.replace("index.html");
+    })
 })
 
 const filterArticles = (input, context) => {
@@ -174,11 +179,11 @@ const filterArticles = (input, context) => {
 
     filteredArticles = allArticles.filter(article => {
         if (context == "search") {
-            return article.title.toLowerCase().search(input.toLowerCase()) !== -1
-            // || article.author.toLowerCase().search(input.toLowerCase()) !== -1
-            // || article.description.toLowerCase().search(input.toLowerCase()) !== -1)
+            return (article.title.toLowerCase().search(input.toLowerCase()) !== -1
+                || article.author.toLowerCase().search(input.toLowerCase()) !== -1
+                || article.description.toLowerCase().search(input.toLowerCase()) !== -1)
         } else if (context == "journal") {
-            // return article.author.toLowerCase().search(input.toLowerCase()) !== -1 
+            // return article.journal.toLowerCase().search(input.toLowerCase()) !== -1 
         } else if (context == "author") {
             return article.author.toLowerCase().search(input.toLowerCase()) !== -1
         }

@@ -23,6 +23,40 @@ const inMemoryHorrors = [
     }
 ];
 
+const authenticateLogin = async (request, response) => {
+    const { email, password } = request.body;
+    pool.query("SELECT * FROM users WHERE email = '" + email + "' AND password = '" + password + "'", (error, results) => {
+        if (error) {
+            console.log('err fetching user didnt match')
+        } else {
+            if (results.rowCount == 0) {
+                console.log('no user found');
+                response.status(404).json({ status: false });
+            } else {
+                console.log('verified user login');
+                response.status(200).json({ status: true });
+            }
+        }
+    });
+}
+
+const registerUser = async (request, response) => {
+    const { firstname, lastname, email, password } = request.body;
+    pool.query("INSERT INTO users (first_name, last_name, email, password) VALUES ("
+        + "'" + firstname + "',"
+        + "'" + lastname + "',"
+        + "'" + email + "',"
+        + "'" + password + "')",
+        (error, results) => {
+            if (error) {
+                console.log('error with registering ', error)
+            } else {
+                console.log('verified user creation');
+                response.status(200).json({ status: true });
+            }
+        });
+}
+
 const getAllArticles = async (request, response) => {
     pool.query('SELECT * FROM articles', (error, results) => {
         response.status(200).json(results.rows);
@@ -131,6 +165,8 @@ const deleteHorror = (request, response) => {
 };
 
 module.exports = {
+    registerUser,
+    authenticateLogin,
     getAllArticles,
     getAcademicJournals,
     getSearchTerms,

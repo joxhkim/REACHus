@@ -12,6 +12,8 @@ app.listen(port, () => {
     console.log(`Listening on port ${port}`);
 });
 
+app.post('/user/register/', api.registerUser)
+app.put('/user/login/', api.authenticateLogin)
 app.get('/articles/', api.getAllArticles);
 app.get('/search_terms/', api.getSearchTerms);
 app.get('/author_terms/', api.getAuthors);
