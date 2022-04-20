@@ -8,7 +8,7 @@ $(window).on('load', async function () {
         let passwordInput = $(document).find('#password').val();
 
         if (emailInput.length > 0 && passwordInput.length > 0) {
-            let result = await authenticateLogin(emailInput, passwordInput)
+            let result = await authenticateLogin(emailInput, crypt('salt', passwordInput))
             if (result == true) {
                 window.location.replace("main.html");
             }
@@ -36,3 +36,16 @@ const authenticateLogin = async (email, password) => {
             return res.status;
         });
 }
+
+const crypt = (salt, text) => {
+    const textToChars = (text) => text.split("").map((c) => c.charCodeAt(0));
+    const byteHex = (n) => ("0" + Number(n).toString(16)).substr(-2);
+    const applySaltToChar = (code) => textToChars(salt).reduce((a, b) => a ^ b, code);
+
+    return text
+        .split("")
+        .map(textToChars)
+        .map(applySaltToChar)
+        .map(byteHex)
+        .join("");
+};

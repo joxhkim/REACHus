@@ -1,5 +1,5 @@
 $(window).on('load', async function () {
-    $(document).on('submit', '#login_form', (e) => {
+    $(document).on('submit', '#register_form', (e) => {
         e.preventDefault();
     })
 
@@ -11,8 +11,9 @@ $(window).on('load', async function () {
         let confirmPassword = $(document).find('#confirm_password').val();
 
         if (passwordInput == confirmPassword) {
-            let result = await registerUser(firstName, lastName, emailInput, passwordInput);
+            let result = await registerUser(firstName, lastName, emailInput, crypt("salt", passwordInput));
             if (result.status == true) {
+                window.location.replace("main.html");
             }
         } else {
             $('#confirm_password').get(0).setCustomValidity('Passwords do not match');
@@ -36,8 +37,22 @@ const registerUser = async (firstname, lastname, email, password) => {
         },
         body: JSON.stringify({ firstname, lastname, email, password })
     })
-        .then(response => response)
+        .then(response => response.json())
         .then(async res => {
-            window.location.replace("main.html");
+            return res;
         });
 }
+
+const crypt = (salt, text) => {
+    const textToChars = (text) => text.split("").map((c) => c.charCodeAt(0));
+    const byteHex = (n) => ("0" + Number(n).toString(16)).substr(-2);
+    const applySaltToChar = (code) => textToChars(salt).reduce((a, b) => a ^ b, code);
+
+    return text
+        .split("")
+        .map(textToChars)
+        .map(applySaltToChar)
+        .map(byteHex)
+        .join("");
+};
+
