@@ -8,20 +8,6 @@ const pool = new Pool({
     port: 5432
 });
 
-const inMemoryHorrors = [
-    {
-        name: 'The Hills Have Eyes',
-        rating: 7.8
-    },
-    {
-        name: 'Night of the Living Dead',
-        rating: 9.0
-    },
-    {
-        name: 'Scream',
-        rating: 7.2
-    }
-];
 
 const authenticateLogin = async (request, response) => {
     const { email, password } = request.body;
@@ -137,33 +123,6 @@ const getHorrorById = (request, response) => {
     }
 };
 
-const updateHorror = (request, response) => {
-    const id = parseInt(request.params.id);
-    const { name, rating } = request.body;
-
-    if (request.treatment == 'on') {
-        pool.query('UPDATE horrors SET name = $1, rating = $2 WHERE id = $3', [name, rating, id], (error, results) => {
-            response.status(200).send(`Horror with id ${id} modified.`);
-        });
-    } else {
-        inMemoryHorrors[0] = { name, rating };
-        response.status(200).send(`Horror with id ${id} modified.`);
-    }
-};
-
-const deleteHorror = (request, response) => {
-    const id = parseInt(request.params.id);
-
-    if (request.treatment == 'on') {
-        pool.query('DELETE FROM horrors WHERE id = $1', [id], (error, results) => {
-            response.status(200).send(`Horror with id ${id} deleted.`);
-        });
-    } else {
-        inMemoryHorrors.shift();
-        response.status(200).send(`Horror with id ${id} deleted.`);
-    }
-};
-
 module.exports = {
     registerUser,
     authenticateLogin,
@@ -178,3 +137,45 @@ module.exports = {
     deleteJournalTerm,
     deleteAuthorTerm,
 };
+
+// const inMemoryHorrors = [
+//     {
+//         name: 'The Hills Have Eyes',
+//         rating: 7.8
+//     },
+//     {
+//         name: 'Night of the Living Dead',
+//         rating: 9.0
+//     },
+//     {
+//         name: 'Scream',
+//         rating: 7.2
+//     }
+// ];
+
+// const updateHorror = (request, response) => {
+//     const id = parseInt(request.params.id);
+//     const { name, rating } = request.body;
+
+//     if (request.treatment == 'on') {
+//         pool.query('UPDATE horrors SET name = $1, rating = $2 WHERE id = $3', [name, rating, id], (error, results) => {
+//             response.status(200).send(`Horror with id ${id} modified.`);
+//         });
+//     } else {
+//         inMemoryHorrors[0] = { name, rating };
+//         response.status(200).send(`Horror with id ${id} modified.`);
+//     }
+// };
+
+// const deleteHorror = (request, response) => {
+//     const id = parseInt(request.params.id);
+
+//     if (request.treatment == 'on') {
+//         pool.query('DELETE FROM horrors WHERE id = $1', [id], (error, results) => {
+//             response.status(200).send(`Horror with id ${id} deleted.`);
+//         });
+//     } else {
+//         inMemoryHorrors.shift();
+//         response.status(200).send(`Horror with id ${id} deleted.`);
+//     }
+// };

@@ -181,9 +181,10 @@ const filterArticles = (input, context) => {
         if (context == "search") {
             return (article.title.toLowerCase().search(input.toLowerCase()) !== -1
                 || article.author.toLowerCase().search(input.toLowerCase()) !== -1
-                || article.description.toLowerCase().search(input.toLowerCase()) !== -1)
+                || article.description.toLowerCase().search(input.toLowerCase()) !== -1
+                || article.journal && article.journal.toLowerCase().search(input.toLowerCase()) !== -1)
         } else if (context == "journal") {
-            // return article.journal.toLowerCase().search(input.toLowerCase()) !== -1 
+            return article.journal && article.journal.toLowerCase().search(input.toLowerCase()) !== -1
         } else if (context == "author") {
             return article.author.toLowerCase().search(input.toLowerCase()) !== -1
         }
@@ -269,7 +270,6 @@ const fetchArticles = async () => {
         .then(response => response.json())
         .then(async data => {
             console.log(data);
-            data = data.reverse();
             articles = await buildArticles(data);
             this.articlesArray = data;
             return articles;
