@@ -19,7 +19,7 @@ for i in range(1, 4):
     user_agent = random.choice(user_agent_list)
 headers = {'User-Agent': user_agent}
 
-conn = sqlite3.connect('db.sqlite3.db')
+conn = sqlite3.connect('articles.db')
 c = conn.cursor()
 
 # Add terms you want to scrape here
@@ -30,19 +30,18 @@ terms = ['children+military', 'reintegration', 'military+families', 'divorce+mil
          'reservists', 'veterans', 'posttraumatic+stress+disorder', 'reserve+component', 'war', 'terrorism']
 
 
-
-
 # Function to create the database table. Only required to run on first iteration.
 def create_db():
-    # c.execute(
-    #     '''CREATE TABLE articles(title TEXT, author TEXT, description TEXT, url TEXT)''')
-    c.execute('''CREATE TABLE "home_article" ("id" integer NOT NULL PRIMARY KEY AUTOINCREMENT, "title" varchar(200) NULL, "author" varchar(200) NULL, "year" varchar(200) NULL, "journal" varchar(200) NULL, "description" text NULL, "URL" varchar(200) NULL, "created" datetime NOT NULL, "user_id" bigint NULL REFERENCES "home_user" ("id") DEFERRABLE INITIALLY DEFERRED)''')
+    c.execute(
+        '''CREATE TABLE articles(title TEXT, author TEXT, description TEXT, url TEXT)''')
+
 
 # Function to scrape multiple pages
 def scrape():
     for term in terms:
-        URL = 'https://scholar.google.com/scholar?start=00&q='+(term)+'&hl=en&as_sdt=0,1'
-        # Scrape the first 5 pages of the key term (first 50 articles)
+        URL = 'https://scholar.google.com/scholar?start=00&q=' + \
+            (term)+'&hl=en&as_sdt=0,1'
+        # Scrape the first 2 pages of the key term (first 20 articles)
         for page in range(0, 2):
             new_url = URL[:41] + str(page) + URL[42:]
             time.sleep((30-5)*np.random.random()+5)
@@ -60,11 +59,12 @@ def scrape():
                         'a~ a+ .gs_nph')['href']
                 except:
                     all_article_versions = None
-                c.execute('''INSERT INTO home_article VALUES(?,?,?,?,?,?,?,?,?)''',
+                c.execute('''INSERT INTO articles VALUES(?,?,?,?)''',
                           (title, author, description, url))
             print('Finished scraping page ' + str(page) + ' of term: ' + term)
 
-# create_db()
+
+create_db()  # Comment out this line once you've created the database file
 # scrape()
 conn.commit()
 conn.close()
