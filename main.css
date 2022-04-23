@@ -114,6 +114,11 @@ input[type="radio"]:checked::before {
     justify-content: center;
 }
 
+#reset_btn:hover,
+#delete_btn:hover,
+#add_btn:hover {
+    background-color: #144785;
+}
 
 
 #select_button_type_container {
