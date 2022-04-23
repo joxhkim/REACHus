@@ -237,8 +237,6 @@ ALTER TABLE ONLY public.users ALTER COLUMN id SET DEFAULT nextval('public.users_
 --
 
 COPY public.articles (id, title, author, description, url, journal) FROM stdin;
-670	Test Article	Joshua Kim	Test Description	https://auburn.edu	Family Psychology
-671	Test Title 2	Joshua Kim	Description here	https://google.com	Family Psychology
 52	Ex-offender reintegration: Theory and practice	S Maruna, R Immarigeon, TP LeBel - After crime and punishment, 2013 - books.google.com	… By this larger definition (the one most of the contributors to this book will be concerned \nwith), reintegration encompasses many aspects of processes that go by names such as ‘…	https://books.google.com/books?hl=en&lr=&id=-WsQBAAAQBAJ&oi=fnd&pg=PA3&dq=reintegration&ots=BI_tdaPI8G&sig=pEgkth_CQpvQvtDv8U2jOwC5mOU	\N
 60	Reintegration of the teaching acts	D Keegan - Theoretical principles of distance education, 1993 - books.google.com	Up to 1980 confusion reigned about the concept of distance education. Writers did not make \nit clear whether they were writing about or not writing about the use of computers in schools …	https://books.google.com/books?hl=en&lr=&id=DrXZEnRePJMC&oi=fnd&pg=PA113&dq=reintegration&ots=8FWhjSTgDJ&sig=5tvrmjRvl8GsKSVFAxKPjOnBE74	\N
 107	The military divorce handbook: A practical guide to representing military personnel and their families	ME Sullivan - 2006 - books.google.com	… Willick, whose well-written ABA book, Military Retirement Benefits in Divorce, laid the … of \ndivorce cases: a request for some dirt on the opposing party that may be in the military service …	https://books.google.com/books?hl=en&lr=&id=7IwiUFMHt0EC&oi=fnd&pg=PR17&dq=divorce+military&ots=6IF98TdNDy&sig=rYgPu5UcxKQ3P07rb8FZEJfXCxc	\N
@@ -303,6 +301,7 @@ COPY public.articles (id, title, author, description, url, journal) FROM stdin;
 258	Mindfulness in the treatment of posttraumatic stress disorder among military veterans.	AA Vujanovic, B Niles, A Pietrefesa, SK Schmertz… - 2013 - psycnet.apa.org	… to trauma-related mental health struggles among military veterans? In recent years, clinicians \n… emphasis on the treatment of military veterans suffering from posttraumatic stress disorder (…	https://psycnet.apa.org/doiLanding?doi=10.1037/2326-4500.1.S.15	\N
 259	Coming home: Accommodating the special needs of military veterans to the criminal justice system	MD Hawkins - Ohio St. J. Crim. L., 2009 - HeinOnline	… Some veterans courts restrict participation to military veterans who have served in or near \nareas of active combat. Most allow any veteran of military service to participate.Regular court …	https://heinonline.org/hol-cgi-bin/get_pdf.cgi?handle=hein.journals/osjcl7&section=30	\N
 260	Red blood cell alloantibody frequency, specificity, and properties in a population of male military veterans	CA Tormey, J Fisk, G Stack - Transfusion, 2008 - Wiley Online Library	… were 18,750 military veterans who underwent … military veterans residing in the state of \nConnecticut. According to a census completed by the VA in the year 2000, 95 percent of veterans …	https://onlinelibrary.wiley.com/doi/abs/10.1111/j.1537-2995.2008.01815.x	\N
+290	The military	CC Moskos Jr - Annual Review of Sociology, 1976 - annualreviews.org	The study of armed forces and society is somewhat of an anomaly in the sociological discipline. \nAlthough possessing an extensive and cumulative literature, the sociology of the military …	https://www.annualreviews.org/doi/pdf/10.1146/annurev.so.02.080176.000415	\N
 261	Beyond war and PTSD: The crucial role of transition stress in the lives of military veterans	MC Mobbs, GA Bonanno - Clinical psychology review, 2018 - Elsevier	… of military veterans develop Posttraumatic Stress Disorder (PTSD), mental health theory and \nresearch with military veterans has … By contrast, many and by some accounts most veterans …	https://www.sciencedirect.com/science/article/pii/S0272735817301836	\N
 262	Service members in school: Military veterans' experiences using the Post-9/11 GI Bill and pursuing postsecondary education	JL Steele, N Salcedo, J Coley - 2010 - apps.dtic.mil	… military training, and finding services on campus that support their integration into civilian \nstudent life. Veterans’ … institutions to consider because military veterans constitute a distinctive …	https://apps.dtic.mil/sti/citations/ADA540408	\N
 263	Religion, spirituality, and mental health of US military veterans: Results from the National Health and Resilience in Veterans Study	V Sharma, DB Marin, HK Koenig, A Feder… - Journal of affective …, 2017 - Elsevier	… US military veterans maintained by GfK Knowledge Networks, Inc., we evaluated the relation \nbetween R/S and a broad range of mental health, and psychosocial variables. Veterans …	https://www.sciencedirect.com/science/article/pii/S0165032717302367	\N
@@ -321,7 +320,6 @@ COPY public.articles (id, title, author, description, url, journal) FROM stdin;
 284	Will the 'global war on terrorism'be the new Cold War?	B Buzan - International affairs, 2006 - academic.oup.com	… war on terrorism’ (GWoT) will be a ‘long war’. This ‘long war’ is explicitly compared to the Cold \nWar … The rhetorical move to the concept of a ‘long war’ makes explicit what was implicit in …	https://academic.oup.com/ia/article-abstract/82/6/1101/2435018	\N
 285	International law and the 'war against terrorism'	C Greenwood - International Affairs, 2002 - academic.oup.com	… war’, like the subsequent talk of a ‘war against terrorism’, are understandable in political terms \nbut are not to be taken as referring to the concept of war … acts of international terrorism as …	https://academic.oup.com/ia/article-abstract/78/2/301/2434742	\N
 289	Military culture	JL Soeters, DJ Winslow, A Weibull - … of the Sociology of the Military, 2006 - Springer	… Military organizations represent a specific occupational culture which is relatively isolated \nfrom society. Military … uniqueness is emphasized; and military personnel wear uniforms which …	https://link.springer.com/chapter/10.1007/0-387-34576-0_14	\N
-290	The military	CC Moskos Jr - Annual Review of Sociology, 1976 - annualreviews.org	The study of armed forces and society is somewhat of an anomaly in the sociological discipline. \nAlthough possessing an extensive and cumulative literature, the sociology of the military …	https://www.annualreviews.org/doi/pdf/10.1146/annurev.so.02.080176.000415	\N
 291	The importance of understanding military culture	LK Hall - Social work in health care, 2011 - Taylor & Francis	… working with military personnel and their families, we first must pay attention to the culture \nof the military. Social workers can make a significant contribution to military service members …	https://www.tandfonline.com/doi/abs/10.1080/00981389.2010.513914	\N
 292	Transforming the military	DH Rumsfeld - Foreign Aff., 2002 - HeinOnline	… experience in Afghanistan is a model for the next military campaign. Preparing to refight the \nlast war is a mistake repeated through much of military history and one that we must and will …	https://heinonline.org/hol-cgi-bin/get_pdf.cgi?handle=hein.journals/fora81&section=45	\N
 295	Military rule	B Geddes, E Frantz, JG Wright - Annual Review of Political …, 2014 - annualreviews.org	… group of officers representing the military institution, which we label a “military regime”; \nand … , which we call “military strongman” rule. Examples of military-led autocracy include Idi …	https://www.annualreviews.org/doi/abs/10.1146/annurev-polisci-032211-213418	\N
@@ -410,6 +408,7 @@ COPY public.articles (id, title, author, description, url, journal) FROM stdin;
 402	Towards a theory of ex-combatant reintegration	S Torjesen - 2013 - munin.uit.no	This paper encourages the development of a theoretical framework for the study of the \nreintegration of ex-combatants after war. It takes the first steps towards this by proposing a new …	https://munin.uit.no/handle/10037/5958	\N
 403	Preventing parolees from returning to prison through community-based reintegration	SX Zhang, REL Roberts… - Crime & Delinquency, 2006 - journals.sagepub.com	… This article reports findings from an evaluation of one of the largest parolee reintegration … \nreintegration into society. This program—known as the Preventing Parolee Crime Program or …	https://journals.sagepub.com/doi/abs/10.1177/0011128705282594	\N
 404	'Getting back to real living': a qualitative study of the process of community reintegration after stroke	JP Wood, DM Connelly, MR Maly - Clinical rehabilitation, 2010 - journals.sagepub.com	… Results: The process of community reintegration after stroke … this process of community \nreintegration was to create a … that the process of community reintegration was marked by ongoing …	https://journals.sagepub.com/doi/abs/10.1177/0269215510375901	\N
+428	Military families and the armed forces	R Moelker, I Kloet - Handbook of the sociology of the military, 2006 - Springer	… This chapter focuses on theories concerning military families and family support arrangements. \nWe will deal with the ways in which spouses cope with separation from their loved ones and …	https://link.springer.com/chapter/10.1007/0-387-34576-0_12	\N
 405	Less than the average citizen': Stigma, role transition and the civic reintegration of convicted felons	A Behrens - … and punishment: Pathways to offender reintegration, 2004 - books.google.com	… First, in addition to work and family, we suggest that civic reintegration represents a third \nimportant reintegrative domain, one not examined by previous researchers. Following Maruna’s …	https://books.google.com/books?hl=en&lr=&id=CsiMb_rgAn8C&oi=fnd&pg=PA261&dq=reintegration&ots=QiGpqmUIdI&sig=NAo6Eg1EohoUQoh2Sm6E5_mtsOY	\N
 406	School and social reintegration of children with cancer	ER Katz, CL Rubinstein, NC Hubert… - Journal of Psychosocial …, 1988 - Taylor & Francis	A model intervention package was developed to facilitate the successful school and social \nreintegration of children and adolescents newly diagnosed with cancer. To evaluate the …	https://www.tandfonline.com/doi/abs/10.1300/J077v06n03_09	\N
 407	A review of school reintegration programs for children with cancer	FF Prevatt, RW Heffer, PA Lowe - Journal of School Psychology, 2000 - Elsevier	This article reviews the literature on school reintegration programs for children with cancer. \nAreas covered include recent legislative mandates regarding schooling for chronically ill …	https://www.sciencedirect.com/science/article/pii/S0022440500000467	\N
@@ -427,7 +426,6 @@ COPY public.articles (id, title, author, description, url, journal) FROM stdin;
 423	Risk and resilience in military families experiencing deployment: the role of the family attachment network.	SA Riggs, DS Riggs - Journal of family psychology, 2011 - psycnet.apa.org	… military families from those who develop psychological and/or relational problems? Unfortunately, \nthe theoretical and empirical literature examining military families is … of military families …	https://psycnet.apa.org/record/2011-19412-001	\N
 424	Adjustment and achievement associated with mobility in military families	KH Marchant, FJ Medway - Psychology in the Schools, 1987 - Wiley Online Library	… frequent relocation of military families. Such relocation did not affect their general well-being \nor present identification with the military, with the exception that moves made within a state …	https://onlinelibrary.wiley.com/doi/abs/10.1002/1520-6807(198707)24:3%3C289::AID-PITS2310240315%3E3.0.CO;2-A	\N
 425	The resilience of military families: Theoretical perspectives.	GL Bowen, JA Martin, JA Mancini - 2013 - psycnet.apa.org	… and stressful downsizing (in the overall number of military bases, units, and people) and … \ncapacity of military families (defined here as Afghanistan and Iraq War era military families) …	https://psycnet.apa.org/record/2013-00425-023	\N
-428	Military families and the armed forces	R Moelker, I Kloet - Handbook of the sociology of the military, 2006 - Springer	… This chapter focuses on theories concerning military families and family support arrangements. \nWe will deal with the ways in which spouses cope with separation from their loved ones and …	https://link.springer.com/chapter/10.1007/0-387-34576-0_12	\N
 429	Competence, risk, and resilience in military families: Conceptual commentary	AS Masten - Clinical child and family psychology review, 2013 - Springer	… of this special issue on military families in relation to a new … the burgeoning research on \nmilitary families. This perspective … as the function of families and military units. Developmental …	https://link.springer.com/article/10.1007/s10567-013-0150-2	\N
 430	Promoting the Adaptation of Military Families: An Empirical Test of a Community Practice Model*	GL Bowen, JA Mancini, JA Martin, WB Ware… - Family …, 2003 - Wiley Online Library	… Our primary goal in this research was to explain levels of family adaptation among military \nfamilies through testing the AF community practice model. Overall, results from the analysis …	https://onlinelibrary.wiley.com/doi/abs/10.1111/j.1741-3729.2003.00033.x	\N
 431	Parental deployment and youth in military families: Exploring uncertainty and ambiguous loss	AJ Huebner, JA Mancini, RM Wilcox, SR Grass… - Family …, 2007 - Wiley Online Library	Parental deployment has substantial effects on the family system, among them ambiguity \nand uncertainty. Youth in military families are especially affected by parental deployment …	https://onlinelibrary.wiley.com/doi/abs/10.1111/j.1741-3729.2007.00445.x	\N
@@ -633,7 +631,6 @@ COPY public.articles (id, title, author, description, url, journal) FROM stdin;
 665	The role of emotional functioning in military-related PTSD and its treatment	JL Price, CM Monson, K Callahan… - Journal of Anxiety …, 2006 - Elsevier	… (PTSD) symptomatology for veterans receiving specialized treatment for military-related PTSD. \nCross-… , affective control, depressive symptoms, and PTSD symptoms at pre-treatment. In …	https://www.sciencedirect.com/science/article/pii/S0887618505000836	\N
 667	Warzone violence in Vietnam: an examination of premilitary, military, and postmilitary factors in PTSD in‐patients	B Hiley‐Young, DD Blake, FR Abueg… - … of Traumatic Stress, 1995 - Wiley Online Library	… veterans with PTSD. This report reviews the extant literature examining the premilitary, \nmilitary, … on Post-Traumatic Stress Disorder (PTSD) program inpatients. A number of published …	https://onlinelibrary.wiley.com/doi/abs/10.1002/jts.2490080109	\N
 668	PTSD in the US military, and the politics of prevalence	MP Fisher - Social Science & Medicine, 2014 - Elsevier	… focused on US military and veterans' PTSD policy between 2001 … changes in military and \nveterans' PTSD policy during this … shaped PTSD policy, and how individuals involved in PTSD …	https://www.sciencedirect.com/science/article/pii/S0277953614003451	\N
-669	Test Article	Joshua Kim	Test Description	https://auburn.edu	\N
 \.
 
 
@@ -647,7 +644,6 @@ COPY public.author_terms (id, author_term) FROM stdin;
 3	Catherine Walker O
 4	Leanne Knobloch
 5	Shelly MacDermid Wadsworth
-11	Joshua Kim
 \.
 
 
@@ -663,8 +659,6 @@ COPY public.journal_terms (id, journal_term) FROM stdin;
 5	Military Psychology
 6	Family Social Work
 7	Depression & Anxiety
-8	Test Journal
-19	Example Journal
 \.
 
 
@@ -679,9 +673,6 @@ COPY public.search_terms (id, search_term) FROM stdin;
 5	spouses military
 8	terrorism
 9	ptsd
-10	marine guard
-30	Joshua
-31	test
 \.
 
 
@@ -690,10 +681,7 @@ COPY public.search_terms (id, search_term) FROM stdin;
 --
 
 COPY public.users (id, first_name, last_name, email, password) FROM stdin;
-1	Josh	Kim	josh@email.com	123abc
-58	Joshua	Kim	josh1@email.com	5a66656163603b38392b
-59	Josh	Kim	google@email.com	5a66656163603b38392b
-60	Joshua	Kim	test99@email.com	5a66656163603b38392b
+61	Joshua	Kim	csjoshkim@gmail.com	examplepassword
 \.
 
 
@@ -729,7 +717,7 @@ SELECT pg_catalog.setval('public.search_terms_id_seq', 31, true);
 -- Name: users_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
-SELECT pg_catalog.setval('public.users_id_seq', 60, true);
+SELECT pg_catalog.setval('public.users_id_seq', 61, true);
 
 
 --
